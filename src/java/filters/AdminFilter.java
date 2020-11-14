@@ -30,8 +30,7 @@ public class AdminFilter implements Filter
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpSession session = httpRequest.getSession();
         String email = (String) session.getAttribute("email");
-        String password = (String) session.getAttribute("password");
-        User user = new AccountService().login(email,password);
+        User user = new AccountService().login(email, "password");
 
         if (user == null)
         {
@@ -39,6 +38,7 @@ public class AdminFilter implements Filter
             httpResponse.sendRedirect("login");
             return;
         }
+        
         Role role = user.getRole();
         if (role.getRoleId() == 2)
         {
