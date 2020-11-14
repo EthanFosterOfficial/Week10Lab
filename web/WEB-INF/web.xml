@@ -18,7 +18,7 @@
     </filter-mapping>
     <filter-mapping>
         <filter-name>AdminFilter</filter-name>
-        <url-pattern>/*</url-pattern>
+        <servlet-name>AdminServlet</servlet-name>
     </filter-mapping>
     <servlet>
         <servlet-name>NoteServlet</servlet-name>

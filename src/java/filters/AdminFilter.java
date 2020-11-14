@@ -13,6 +13,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import models.Role;
 
 public class AdminFilter implements Filter {
     
@@ -24,9 +25,9 @@ public class AdminFilter implements Filter {
             // code that is executed before the servlet
             HttpServletRequest httpRequest = (HttpServletRequest)request;
             HttpSession session = httpRequest.getSession();
-            String email = (String)session.getAttribute("email");
+            Role role = (Role)session.getAttribute("role");
             
-            if (email == null) {
+            if (role == null || role.equals("user")) {
                 HttpServletResponse httpResponse = (HttpServletResponse)response;
                 httpResponse.sendRedirect("login");
                 return;
