@@ -34,13 +34,13 @@ public class AdminFilter implements Filter
         //User user = new AccountService().login(email, "password");
         User user = new UserDB().get(email);
 
-        if (user == null)
-        {
-            HttpServletResponse httpResponse = (HttpServletResponse) response;
-            httpResponse.sendRedirect("login");
-            return;
-        }
-        
+//        if (user == null)
+//        {
+//            HttpServletResponse httpResponse = (HttpServletResponse) response;
+//            httpResponse.sendRedirect("login");
+//            return;
+//        }
+//        
         Role role = user.getRole();
         if (role.getRoleId() == 2)
         {
